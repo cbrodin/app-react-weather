@@ -1,0 +1,50 @@
+.card {
+   width: 75%;
+   margin: 50px auto;
+  border: 20px;
+  border-radius: 10px;
+  padding: 40px 40px;
+  color: #996666;
+background: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
+}
+#enterCity {border-radius: 10px;}
+
+body {
+  text-align: center; font-size: smaller;
+}
+h1 {
+  font-family: "Franklin Gothic Medium", Arial Narrow, Arial, sans-serif;
+}
+#currentTemp,
+#fahrenheit,
+#celcius,
+.barrier {
+  font-size: 30px;
+}
+#topSearch,
+#Use-Curr {background-color: #c48f7f; 
+color: #fff;}
+
+#EndCode {text-align: center; font-size: smaller;}
+#temp-descript {text-transform: capitalize;
+font-size: 25px;}
+
+.active {
+  color: #996666;
+  cursor: default;
+}
+#fahrenheit:hover,
+#celcius:hover {
+  text-decoration: none;
+}
+
+#tempEmoji {
+ image-rendering: auto;
+  max-width: 55px;
+}
+
+.weather-forcast {margin-top: 20px;
+text-align: center;color:#0156B3;}
+
+.forecast-temp {font-size: 12px;}
+.fore-temp-min {opacity: 0.6;}
