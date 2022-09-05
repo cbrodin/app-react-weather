@@ -6,6 +6,7 @@ export default  function App() {
     <div className="App">
       <h1>React Weather App</h1>
       <footer>
+        <button className='btn btn-primary'>Hello</button>
         <p>
           This project was coded by{" "}
           <a className="App-link" href="#" target="_blank">
