@@ -1,56 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "./Weather.css";
+import axios from "axios";
 
 export default function Weather() {
-  return ( <div className="card">
-      <div className="main-contain">
-        <br />
-        <form>
-          <input placeholder="enter city name" id="enterCity" />
-          <button type="submit" className="btn btn-info" id="topSearch">
-            Search
-          </button>
-          <button type="button" className="btn btn-dark" id="Use-Curr">
-            Current
-          </button>
-        </form>
-        <br />
-        <div className="container-md">
-          <div className="row align-items-start">
-            <div className="col">
-              <div className="container">
-                <div className="row">
-                  <div className="col">
-                    <h1 id="main"><strong></strong></h1>
-                    <p id="currentDate">Sunday 5:40 PM</p>
-                    <p>
-                      High: <span id="mainHigh"></span>°
-                      <br />
-                      Low: <span id="mainLow"> </span>°
-                    </p>
-                  </div>
-                  <div className="col">
-                    <h2><img src="" id="tempEmoji"/> <span id="temp-descript"></span></h2>
-                    <span id="currentTemp"></span
-                    ><a href="#" id="fahrenheit" className="active"> °F </a
-                    ><span className="barrier"> | </span
-                    ><a href="#" id="celcius">°C</a>
-                    <p>
-                      <br />
-                      Humidity: <span id="humid"></span>%
-                      <br />
-                      Wind: <span id="wind"></span> MPH
-                      <br />
-                      Feels Like: <span id="feelsLike"></span>°
-                    </p>
-                  </div>
+  const [ready, setReady] = useState(false);
+  const[weatherData, setWeatherData] = useState({});
+  setweatherData = {
+    city: response.data.name,
+    date: "Saturday",
+    time: "7:00",
+    high: "100",
+    low: "89",
+    humidity: response.data.main.humidity,
+    wind: "5",
+    feels: "101",
+    faren: response.data.main.temp.imperial,
+    cel: response.data.main.temp.metric,
+  };
+  return (
+    <div className="Weather">
+      <br />
+      <form>
+        <input placeholder="enter city name" />
+        <button type="submit" className="btn btn-info">
+          Search
+        </button>
+        <button type="button" className="btn btn-dark">
+          Current
+        </button>
+      </form>
+      <br />
+      <div className="container-md">
+        <div className="row align-items-start">
+          <div className="col">
+            <div className="container">
+              <div className="row">
+                <div className="col">
+                  <h1>
+                    <strong>{weatherData.city}</strong>
+                  </h1>
+                  <p>
+                    {weatherData.date} {weatherData.time}
+                  </p>
+                  <p>
+                    High: <span>{weatherData.high}</span>°
+                    <br />
+                    Low: <span>{weatherData.low}</span>°
+                  </p>
+                </div>
+                <div className="col">
+                  <h2>
+                    <img /> <span></span>
+                  </h2>
+                  <span></span>
+                  <a href="#" className="active">
+                    {" "}
+                    {weatherData.faren} °F{" "}
+                  </a>
+                  <span className="barrier"> | </span>
+                  <a href="#">{weatherData.cel} °C</a>
+                  <p>
+                    <br />
+                    Humidity: <span>{weatherData.humidity}</span>%
+                    <br />
+                    Wind: <span>{weatherData.wind}</span> MPH
+                    <br />
+                    Feels Like: <span>{weatherData.feels}</span>°
+                  </p>
                 </div>
               </div>
             </div>
-          </div>          
+          </div>
         </div>
-        </div>
-        <div className="weather-forcast" id="forecast"> </div>
-        </div> ); } 
-   <p><a href="https://github.com/cbrodin/weatherapp" id="EndCode"> Open Sourced Code</a> by Chelsea Brodin </p> 
+      </div>
+      <div className="weather-forcast"></div>
+    </div>
+  );
+}

@@ -4,10 +4,10 @@
   border: 20px;
   border-radius: 10px;
   padding: 40px 40px;
-  color: #996666;
-background: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
+  color: #008787;
+background: linear-gradient(to top, #cdd3ff 0%, #bdc5ff 1%, #e09cf8 100%);
 }
-#enterCity {border-radius: 10px;}
+#enterCity {border-radius: 15px;   padding: 5px 5px; margin: 5px 15px;}
 
 body {
   text-align: center; font-size: smaller;
@@ -22,15 +22,18 @@ h1 {
   font-size: 30px;
 }
 #topSearch,
-#Use-Curr {background-color: #c48f7f; 
-color: #fff;}
+#Use-Curr {background-color: #04dcdc; 
+  color: #000000; 
+  border-radius: 15px;  
+  padding: 5px 5px; 
+  margin: 5px 5px; }
 
 #EndCode {text-align: center; font-size: smaller;}
 #temp-descript {text-transform: capitalize;
 font-size: 25px;}
 
 .active {
-  color: #996666;
+  color: #008787;
   cursor: default;
 }
 #fahrenheit:hover,
