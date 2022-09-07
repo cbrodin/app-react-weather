@@ -1,7 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-export default  function App() {
+export default function App() {
   return (
     <div className="App">
       <footer>
