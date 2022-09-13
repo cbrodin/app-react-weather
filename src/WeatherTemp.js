@@ -18,7 +18,7 @@ if (unit === 'fahrenheit' ) {
 <span className="barrier"> | </span>
   </div>); }
   else {
-    let celsius= (props.celsius 5/9(-32))
+    let celsius= (props.celsius)(5 / 9) -32 ;
 return (
   <div>
     <span>{Math.round(props.celsius)}</span>
