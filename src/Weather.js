@@ -1,80 +1,67 @@
 import React, { useState } from "react";
 import "./App.css";
+import WeatheInfo from "./WeatherInfo";
 import "./Weather.css";
 import axios from "axios";
 
-export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const[weatherData, setWeatherData] = useState({});
-  setweatherData = {
-    city: response.data.name,
-    date: "Saturday",
-    time: "7:00",
-    high: "100",
-    low: "89",
-    humidity: response.data.main.humidity,
-    wind: "5",
-    feels: "101",
-    faren: response.data.main.temp.imperial,
-    cel: response.data.main.temp.metric,
-  };
-  return (
-    <div className="Weather">
-      <br />
-      <form>
-        <input placeholder="enter city name" />
-        <button type="submit" className="btn btn-info">
-          Search
-        </button>
-        <button type="button" className="btn btn-dark">
-          Current
-        </button>
-      </form>
-      <br />
-      <div className="container-md">
-        <div className="row align-items-start">
-          <div className="col">
-            <div className="container">
-              <div className="row">
-                <div className="col">
-                  <h1>
-                    <strong>{weatherData.city}</strong>
-                  </h1>
-                  <p>
-                    {weatherData.date} {weatherData.time}
-                  </p>
-                  <p>
-                    High: <span>{weatherData.high}</span>°
-                    <br />
-                    Low: <span>{weatherData.low}</span>°
-                  </p>
-                </div>
-                <div className="col">
-                  <h2>
-                    <img /> <span></span>
-                  </h2>
-                  <span></span>
-                  <a href="#" className="active">
-                    {" "}
-                    {weatherData.faren} °F{" "}
-                  </a>
-                  <span className="barrier"> | </span>
-                  <a href="#">{weatherData.cel} °C</a>
-                  <p>
-                    <br />
-                    Humidity: <span>{weatherData.humidity}</span>%
-                    <br />
-                    Wind: <span>{weatherData.wind}</span> MPH
-                    <br />
-                    Feels Like: <span>{weatherData.feels}</span>°
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ready: false});
+  const [city, setCity] = useState(props.defaultCity);
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      city: response.data.name,
+      date: new Date(response.data.dt * 1000),
+      discription: response.data.weather[0].description,
+      iconUrl: `http://openweathermap.org/img/wn/${ response.data.weather[0]}@2x.png`,
+      high: response.data.main.temp_max,
+      low: response.data.main.temp_min,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      feels: response.data.feelslike,
+      faren: response.data.main.temp.imperial,
+      cel: response.data.main.temp.metric,
+    });
+  }
+function search() {    
+  const apiKey = "40ee9c494fa4d6774c1dda0bb71d8806";
+let city = "Austin";
+let apiUrl = `http://api.openweathermap.org/data/3.0/weather?q=${city}&appid=${apiKey}&units=imperial`;
+axios.get(apiUrl).then(handleResponse);}
+
+  function handleSubmit(event) {
+    event.preventDefault ();
+    search(city);
+  }
+  function handleCity(event){
+setCity(event.target.value);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <br />
+        <form onSubmit={handleSubmit}>
+          <input 
+          type="search"
+          placeholder="enter city name" 
+          className="form-control"
+          autoFocus="on"
+          onChange={handleCity}/>
+          <button type="submit" className="btn btn-info">
+            Search
+          </button>
+          <button type="button" className="btn btn-dark">
+            Current
+          </button>
+        </form>
+        <br />
+        <WeatheInfo data={weatherData}/>
       </div>
-      <div className="weather-forcast"></div>
-    </div>
-  );
+    );
+  }
+  else {
+search();
+    return "Loading weather data...";
+  }
 }
