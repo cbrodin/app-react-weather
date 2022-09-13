@@ -13,7 +13,7 @@ export default function Weather(props) {
       ready: true,
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
-      discription: response.data.weather[0].description,
+      description: response.data.weather[0].description,
       iconl: response.data.weather[0].icon,
       high: response.data.main.temp_max,
       low: response.data.main.temp_min,
@@ -24,11 +24,12 @@ export default function Weather(props) {
       cel: response.data.main.temp.metric,
     });
   }
-function search() {    
+function search() {
   const apiKey = "40ee9c494fa4d6774c1dda0bb71d8806";
-let city = "Austin";
-let apiUrl = `http://api.openweathermap.org/data/3.0/weather?q=${city}&appid=${apiKey}&units=imperial`;
-axios.get(apiUrl).then(handleResponse);}
+  let city = "Austin";
+  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(handleResponse);
+}
 
   function handleSubmit(event) {
     event.preventDefault ();
