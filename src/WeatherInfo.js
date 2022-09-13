@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import ReactAnimatedWeather from "react-animated-weather-updated";
+import WeatherTemp from "./WeatherTemp";
 
 
 export default function WeatheInfo(props) {
@@ -28,20 +29,14 @@ export default function WeatheInfo(props) {
                     <h2 className="float-left">
                       <ReactAnimatedWeather
                         code={props.data.icon}
-                        alt={props.data.description}
                       />
                       <span></span>
                     </h2>
+
                     <span></span>
-                    <a href="#" className="active">
-                      {" "}
-                      {props.weatherData.faren} °F{" "}
-                    </a>
-                    <span className="barrier"> | </span>
-                    <a href="#">{props.weatherData.cel} °C</a>
-                    <p>
+                    <WeatherTemp  faren={props.data.temperature}/>
                       <br />
-                      Humidity: <span>{props.weatherData.humidity}</span>%
+                     <p> Humidity: <span>{props.weatherData.humidity}</span>%
                       <br />
                       Wind: <span>{props.weatherData.wind}</span> MPH
                       <br />
@@ -50,10 +45,8 @@ export default function WeatheInfo(props) {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
         <div className="weather-forcast"></div>
-      </div>
-    );
-}
+ </div></div>  );
+} 
