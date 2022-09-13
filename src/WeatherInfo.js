@@ -1,5 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import ReactAnimatedWeather from "react-animated-weather-updated";
+
 
 export default function WeatheInfo(props) {
     return (
@@ -23,11 +25,10 @@ export default function WeatheInfo(props) {
                     </p>
                   </div>
                   <div className="col">
-                    <h2>
-                      <img
-                        src="{weatherData.iconUrl"
-                        alt="{weatherData.description}"
-                        className="float-left"
+                    <h2 className="float-left">
+                      <ReactAnimatedWeather
+                        code={props.data.icon}
+                        alt={props.data.description}
                       />
                       <span></span>
                     </h2>
