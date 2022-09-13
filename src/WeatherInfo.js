@@ -14,9 +14,7 @@ export default function WeatheInfo(props) {
               <div className="row">
                 <div className="col">
                   <h1>
-                    <strong>
-                      {props.data.city}
-                    </strong>
+                    <strong>{props.data.city}</strong>
                   </h1>
                   <p>
                     <FormattedDate date={props.data.date} />
@@ -41,8 +39,6 @@ export default function WeatheInfo(props) {
                     Humidity: <span>{props.data.humidity}</span>%
                     <br />
                     Wind: <span>{Math.round(props.data.wind)}</span> MPH
-                    <br />
-                    Feels Like: <span>{props.data.feels}</span>°
                   </p>
                 </div>
               </div>
