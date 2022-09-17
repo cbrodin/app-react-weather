@@ -12,10 +12,18 @@ function showCelsius(event) {
 }
 
 if (unit === 'fahrenheit' ) {
-  return ( <div className="WeatherTemp"> 
-<span>{Math.round(props.fahrenheit)}{" "}°F</span>
-<span> | {" "}<a href="/" onClick={showFarenheit}>℃</a></span>
-  </div>); }
+  return (
+    <div className="WeatherTemp">
+      <span>{Math.round(props.faren)} °F</span>
+      <span>
+        {" "}
+        |{" "}
+        <a href="/" onClick={showFarenheit}>
+          ℃
+        </a>
+      </span>
+    </div>
+  ); }
   else {
     let celsius= (props.celsius)(5 / 9) -32 ;
 return (

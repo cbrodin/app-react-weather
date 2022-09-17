@@ -8,22 +8,23 @@ import axios from "axios";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ready: false});
   const [city, setCity] = useState(props.defaultCity);
-  function handleResponse(response) {
-    setWeatherData({
-      ready: true,
-      city: response.data.name,
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      iconl: response.data.weather[0].icon,
-      high: response.data.main.temp_max,
-      low: response.data.main.temp_min,
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      feels: response.data.feelslike,
-      faren: response.data.main.temp.imperial,
-      cel: response.data.main.temp.metric,
-    });
-  }
+function handleResponse(response) {
+  setWeatherData({
+    ready: true,
+    city: response.data.name,
+    date: new Date(response.data.dt * 1000),
+    description: response.data.weather[0].description,
+    iconl: response.data.weather[0].icon,
+    high: response.data.main.temp_max,
+    low: response.data.main.temp_min,
+    humidity: response.data.main.humidity,
+    wind: response.data.wind.speed,
+    feels: response.data.feelslike,
+    faren: response.data.main.temp,
+    temp: response.data.main.temp,
+    cel: response.data.main.temp.metric,
+  });
+}
 function search() {
   const apiKey = "40ee9c494fa4d6774c1dda0bb71d8806";
   let city = "Austin";
