@@ -1,4 +1,5 @@
 import React from "react";
+import "./Weather.css";
 import FormattedDate from "./FormattedDate";
 import ReactAnimatedWeather from "react-animated-weather-updated";
 import WeatherTemp from "./WeatherTemp";
@@ -9,7 +10,6 @@ export default function WeatheInfo(props) {
     <div className="WeatherInfo">
       <div className="container-md">
         <div className="row align-items-start">
-          <div className="col">
             <div className="container">
               <div className="row">
                 <div className="col">
@@ -42,7 +42,6 @@ export default function WeatheInfo(props) {
                   </p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
         <div className="weather-forcast"></div>
