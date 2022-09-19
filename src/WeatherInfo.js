@@ -3,6 +3,7 @@ import "./Weather.css";
 import FormattedDate from "./FormattedDate";
 import ReactAnimatedWeather from "react-animated-weather-updated";
 import WeatherTemp from "./WeatherTemp";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatheInfo(props) {
   console.log(props.data);
@@ -27,7 +28,7 @@ export default function WeatheInfo(props) {
                 </div>
                 <div className="col">
                   <h2 className="float-left">
-                    <ReactAnimatedWeather code={props.data.icon} />
+                    <WeatherIcon code={props.data.icon} />
                     <span></span>
                   </h2>
 
