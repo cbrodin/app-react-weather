@@ -22,6 +22,7 @@ function handleResponse(response) {
     faren: response.data.main.temp,
     temp: response.data.main.temp,
     cel: response.data.main.temp.metric,
+    coord: response.data.coord,
   });
 }
 function search() {
@@ -54,7 +55,7 @@ setCity(event.target.value);
         </form>
         <br />
         <WeatheInfo data={weatherData} />
-        <Forecast />
+        <Forecast  coord={weatherData.coord}/>
       </div>
     );
   }
