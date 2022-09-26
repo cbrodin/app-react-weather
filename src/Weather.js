@@ -25,19 +25,19 @@ function handleResponse(response) {
     coord: response.data.coord,
   });
 }
-function search() {
-  const apiKey = "40ee9c494fa4d6774c1dda0bb71d8806";
-  let city = "Austin";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(handleResponse);
-}
+
+  function search() {
+    const apiKey = "40ee9c494fa4d6774c1dda0bb71d8806";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleResponse);
+  }
 
   function handleSubmit(event) {
     event.preventDefault ();
     search(city);
   }
-  function handleCity(event){
-setCity(event.target.value);
+  function handleCityChange(event) {
+    setCity(event.target.value);
   }
 
   if (weatherData.ready) {
@@ -49,7 +49,7 @@ setCity(event.target.value);
             placeholder="enter city name"
             className="form-control"
             autoFocus="on"
-            onChange={handleCity}
+            onChange={handleCityChange}
           />
           <input className="btn-search" type="submit" value="Search" />
         </form>
@@ -58,8 +58,9 @@ setCity(event.target.value);
         <Forecast  coord={weatherData.coord}/>
       </div>
     );
-  }
+ }
   else {
+
 search();
     return "Loading weather data...";
   }
