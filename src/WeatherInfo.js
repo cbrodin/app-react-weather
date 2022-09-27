@@ -5,7 +5,6 @@ import WeatherTemp from "./WeatherTemp";
 import WeatherIcon from "./WeatherIcon";
 
 export default function WeatheInfo(props) {
-  console.log(props.data);
   return (
     <div className="WeatherInfo">
       <div className="container-md">
@@ -30,7 +29,6 @@ export default function WeatheInfo(props) {
                     <WeatherIcon code={props.data.icon} />
                     <span></span>
                   </h2>
-
                   <span></span>
                   <WeatherTemp faren={props.data.temp} />
                   <br />

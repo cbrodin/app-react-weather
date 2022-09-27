@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import WeatherIcon from "./WeatherIcon";
 import "./Forecast.css";
 import axios from "axios";
 import ForecastDay from "./ForecastDay";
@@ -11,8 +10,7 @@ export default function Forecast(props) {
 
 
 function handleResponse(response){
-  console.log(response.data)
-  setwetforecast(response.data.daily)
+setWetforecast(response.data.daily);
   setLoaded (true);
 }
 
@@ -20,8 +18,20 @@ function handleResponse(response){
    return (
      <div className="Forecasted">
        <div className="row">
-         <div className="col">\
-         <ForecastDay  data={forecast[0]}/>
+         <div className="col">
+           <ForecastDay data={wetforecast[0]} />{" "}
+         </div>
+         <div className="col">
+           <ForecastDay data={wetforecast[1]} />{" "}
+         </div>{" "}
+         <div className="col">
+           <ForecastDay data={wetforecast[2]} />{" "}
+         </div>{" "}
+         <div className="col">
+           <ForecastDay data={wetforecast[3]} />{" "}
+         </div>{" "}
+         <div className="col">
+           <ForecastDay data={wetforecast[4]} />{" "}
          </div>
        </div>
      </div>
@@ -30,8 +40,8 @@ function handleResponse(response){
    let apiKey = "40ee9c494fa4d6774c1dda0bb71d8806";
    let longitude = props.coord.lon;
    let latitude = props.coord.lat;
-   let apiUrl = `https://api.openweathermap.org/data/2.5/onecallr?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
-
+   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+   
    axios.get(apiUrl).then(handleResponse);
 
    return null;
