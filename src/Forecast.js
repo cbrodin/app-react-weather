@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import WeatherIcon from "./WeatherIcon";
 import "./Forecast.css";
 import axios from "axios";
+import ForecastDay from "./ForecastDay";
 
 
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [wetforecast, setWetforecast] = useState (null);
+
+
 function handleResponse(response){
   console.log(response.data)
-  setWetforecast(response.data.daily)
+  setwetforecast(response.data.daily)
   setLoaded (true);
 }
 
@@ -17,13 +20,8 @@ function handleResponse(response){
    return (
      <div className="Forecasted">
        <div className="row">
-         <div className="col">
-           <div className="forecastDay">Mon</div>
-           <WeatherIcon code="01d" size={32} />
-           <div className="forecastTemps">
-             <span className="forecastMin">87°</span>
-             <span className="forecaseMax">97°</span>
-           </div>
+         <div className="col">\
+         <ForecastDay  data={forecast[0]}/>
          </div>
        </div>
      </div>
