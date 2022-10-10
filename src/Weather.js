@@ -14,7 +14,7 @@ function handleResponse(response) {
     city: response.data.name,
     date: new Date(response.data.dt * 1000),
     description: response.data.weather[0].description,
-    iconl: response.data.weather[0].icon,
+    icon: response.data.weather[0].icon,
     high: response.data.main.temp_max,
     low: response.data.main.temp_min,
     humidity: response.data.main.humidity,
