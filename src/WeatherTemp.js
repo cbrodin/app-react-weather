@@ -27,7 +27,7 @@ if (unit === 'fahrenheit' ) {
     </div>
   ); }
   else {
-    let celsius = (props.celsius)(5 / 9) -32 ;
+    if  (unit === 'celsius' ) { (props.celsius(5 / 9) - 32);
 return (
   <div>
     <span>{Math.round(props.celsius)}</span>
@@ -38,5 +38,5 @@ return (
       </a>
     </span>
   </div>
-);
+);}
   }}
