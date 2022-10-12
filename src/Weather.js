@@ -55,8 +55,12 @@ function handleResponse(response) {
           <input className="btn-search" type="submit" value="Search" />
         </form>
         <br />
-        <WeatheInfo data={weatherData} />
-        <Forecast  coord={weatherData.coord}/>
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <WeatheInfo data={weatherData} />
+            <Forecast coord={weatherData.coord} />
+          </div>
+        </div>
       </div>
     );
  }

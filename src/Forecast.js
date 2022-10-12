@@ -9,9 +9,7 @@ export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [wetforecast, setWetforecast] = useState (null);
 
-useEffect(() =>{
-  setLoaded(false);
-},[props.coord]);
+useEffect(() =>{  setLoaded(false);},[props.coord]);
 
 function handleResponse(response){
 setWetforecast(response.data.daily);
@@ -30,18 +28,18 @@ axios.get(apiUrl).then(handleResponse);}
        <div className="row">
          <div className="col">
            <ForecastDay data={wetforecast[0]} />{" "}
-         </div>
-         <div className="col">
-           <ForecastDay data={wetforecast[1]} />{" "}
-         </div>{" "}
-         <div className="col">
-           <ForecastDay data={wetforecast[2]} />{" "}
-         </div>{" "}
-         <div className="col">
-           <ForecastDay data={wetforecast[3]} />{" "}
-         </div>{" "}
-         <div className="col">
-           <ForecastDay data={wetforecast[4]} />{" "}
+           <div className="col">
+             <ForecastDay data={wetforecast[1]} />{" "}
+             <div className="col">
+               <ForecastDay data={wetforecast[2]} />{" "}
+               <div className="col">
+                 <ForecastDay data={wetforecast[3]} />{" "}
+                 <div className="col">
+                   <ForecastDay data={wetforecast[4]} />{" "}
+                 </div>{" "}
+               </div>
+             </div>
+           </div>
          </div>
        </div>
      </div>

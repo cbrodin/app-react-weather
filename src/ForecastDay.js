@@ -9,7 +9,7 @@ function maxTemp () {
 }
 
 function minTemp() {
-  let tempMin= Math.round(props.data.temp.max);
+  let tempMin= Math.round(props.data.temp.min);
   return `${tempMin}°`;
 }
 
@@ -33,10 +33,10 @@ function day(){
  return (
    <div>
      <div className="forecastDay"> {day()} </div>
-     <WeatherIcon code={props.weather[0].icon} size={32} />
+     <WeatherIcon code={props.data.weather[0].icon} size={32} />{" "}
      <div className="forecastTemps">
+       <span className="forecaseMax">{maxTemp()}</span>{" "}
        <span className="forecastMin">{minTemp()}</span>
-       <span className="forecaseMax">{maxTemp()}</span>
      </div>
    </div>
  ); 
