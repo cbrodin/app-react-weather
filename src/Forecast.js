@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Forecast.css";
 import axios from "axios";
 import ForecastDay from "./ForecastDay";
-import { cleanup } from "@testing-library/react";
+import "./Weather.css";
 
 
 export default function Forecast(props) {
@@ -24,25 +24,24 @@ axios.get(apiUrl).then(handleResponse);}
 
  if (loaded) {
    return (
-     <div className="Forecasted">
-       <div className="row">
+  <div class="Forecasted">
+    <div class="col"></div>
          <div className="col">
-           <ForecastDay data={wetforecast[0]} />{" "}
+           <ForecastDay data={wetforecast[1]} />
            <div className="col">
-             <ForecastDay data={wetforecast[1]} />{" "}
-             <div className="col">
-               <ForecastDay data={wetforecast[2]} />{" "}
-               <div className="col">
-                 <ForecastDay data={wetforecast[3]} />{" "}
-                 <div className="col">
-                   <ForecastDay data={wetforecast[4]} />{" "}
-                 </div>{" "}
-               </div>
-             </div>
+             <ForecastDay data={wetforecast[2]} />
+           </div>
+           <div className="col">
+             <ForecastDay data={wetforecast[3]} />
+           </div>
+           <div className="col">
+             <ForecastDay data={wetforecast[4]} />
+           </div>
+           <div className="col">
+             <ForecastDay data={wetforecast[5]} />
            </div>
          </div>
        </div>
-     </div>
    );
  } else {
 load ();

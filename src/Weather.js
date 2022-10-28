@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./Weather.css";
 import WeatheInfo from "./WeatherInfo";
 import Forecast from "./Forecast";
 import axios from "axios";
@@ -57,11 +57,12 @@ function handleResponse(response) {
         <br />
         <div class="container">
           <div class="row justify-content-md-center">
-            <WeatheInfo data={weatherData} />
-            <Forecast coord={weatherData.coord} />
+            <WeatheInfo data={weatherData} /></div>
+            <div class="container">
+              <Forecast coord={weatherData.coord} />
+            </div>            </div>
+
           </div>
-        </div>
-      </div>
     );
  }
   else {

@@ -9,7 +9,6 @@ export default function WeatheInfo(props) {
     <div className="WeatherInfo">
       <div className="container-md">
         <div className="row align-items-start">
-            <div className="container">
               <div className="row">
                 <div className="col">
                   <h1>
@@ -44,6 +43,5 @@ export default function WeatheInfo(props) {
         </div>
         <div className="weather-forcast"></div>
       </div>
-    </div>
   );
 }

@@ -1,12 +1,12 @@
-.card {
-   width: 75%;
+.Weather {
+   width: 15%;
    margin: 50px auto;
   border: 20px;
   border-radius: 10px;
   padding: 40px 40px;
   color: #008787;
-background: linear-gradient(to top, #cdd3ff 0%, #bdc5ff 1%, #e09cf8 100%);
-}
+background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);}
+
 #enterCity {border-radius: 15px;   padding: 5px 5px; margin: 5px 15px;}
 
 body {
@@ -15,11 +15,11 @@ body {
 h1 {
   font-family: "Franklin Gothic Medium", Arial Narrow, Arial, sans-serif;
 }
-#currentTemp,
+.WeatherTemp,
 #fahrenheit,
 #celcius,
 .barrier {
-  font-size: 30px;
+  font-size: 25px;
 }
 #topSearch,
 #Use-Curr {background-color: #04dcdc; 
@@ -36,11 +36,6 @@ font-size: 25px;}
   color: #008787;
   cursor: default;
 }
-#fahrenheit:hover,
-#celcius:hover {
-  text-decoration: none;
-}
-
 #tempEmoji {
  image-rendering: auto;
   max-width: 55px;
@@ -51,3 +46,56 @@ text-align: center;color:#0156B3;}
 
 .forecast-temp {font-size: 12px;}
 .fore-temp-min {opacity: 0.6;}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
